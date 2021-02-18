@@ -1,0 +1,118 @@
+package com.example.stringtask1
+
+class TestData {
+
+    fun main()
+    {
+        substrchange1()
+        question3()
+        twoarr5()
+        last()
+        percentage()
+        dup()
+    }
+
+    fun substrchange1() //1.Write a program to replace a substring inside a string with another string.
+    {
+
+        var str = "APPLEPIE"
+        val oldValue = "PIE"
+        val newValue = "JUICE"
+
+        val output = str.replace(oldValue, newValue)
+        println(str+"- this is the orignal text")
+        print(output+"- sustring is changed from PIE TO JUICE in-"+str)
+    }
+    fun question3()//3.Write a program to find the number of occurrences of a character in a string without using loop.
+    {
+
+        val i =("fibonacci")
+        println(i.groupingBy { it }.eachCount().filter { it.value > 1 })
+    }
+
+    fun twoarr5()//5.Find common elements between two arrays.
+    {
+        val arr1 = intArrayOf(4, 7, 3, 9, 2)
+        val arr2 = intArrayOf(3, 2, 12, 9, 40, 32, 4)
+        for (i in arr1.indices)
+        {
+            for (j in arr2.indices)
+            {
+                if (arr1[i] == arr2[j])
+                {
+                    println(arr1[i])
+                }
+            }
+        }
+    }
+    fun last()//6.Check letter in string which do not have pair.
+    {
+        var text = "hellosirhellosir"
+        println("original string was-"+text)
+        var newtext = ""
+        var set = HashSet<Char>()
+        for (char in text)
+        {
+            if(set.add(char))
+                newtext += char
+        }
+        text = newtext
+        println("string after removed paired character-"+text)
+    }
+    fun percentage()//4.Calculate the number & Percentage Of Lowercase Letters,Uppercase Letters, Digits And Other Special Characters In A String.
+	{
+        val input="BootCamp^Shoaib895"
+        val totalChar = input.length
+        var upperCase = 0
+        var lowerCase = 0
+        var digits = 0
+        var others = 0
+        for (i in 0 until input.length) {
+            val ch = input[i]
+            if (Character.isUpperCase(ch)) {
+                upperCase++
+            } else if (Character.isLowerCase(ch)) {
+                lowerCase++
+            } else if (Character.isDigit(ch)) {
+                digits++
+            } else {
+                others++
+            }
+        }
+
+        println("Lower case letters :- " + lowerCase);
+        println("Upper case letters :- " + upperCase);
+        println("Number :- " + digits);
+        println("Special characters :- " + others);
+        val upperCaseLetterPercentage = upperCase * 100 / totalChar.toDouble()
+        val lowerCaseLetterPercentage = lowerCase * 100 / totalChar.toDouble()
+        val digitsPercentage = digits * 100 / totalChar.toDouble()
+        val otherCharPercentage = others * 100 / totalChar.toDouble()
+        println("In '$input' : ")
+        println("Uppercase letters in percentage are:- " +(upperCaseLetterPercentage).toString() + "% ")
+        println("Lowercase letters in percentage are:- " + (lowerCaseLetterPercentage).toString() + "%")
+        println("Digits in percentage Are:- " + (digitsPercentage).toString() + "%")
+        println("Other Characters in percentage Are:- " + (otherCharPercentage).toString() + "%")
+    }
+
+    fun dup() //2.Write a program to find the number of occurrences of the duplicate words in a string and print them.
+	{
+        var string = "ram is going to market for buying apple orange mango apple orange banana"
+        var count: Int
+        string = string.toLowerCase()
+        val words = string.split(" ".toRegex()).toTypedArray()
+        print("Duplicate words in a given string are :- ")
+        for (i in words.indices) {
+            count = 1
+            for (j in i + 1 until words.size) {
+                if (words[i] == words[j]) {
+                    count++
+                    words[j] = "0"
+                }
+            }
+            if (count > 1 && words[i] !== "0") println(words[i])
+        }
+    }
+
+
+}
