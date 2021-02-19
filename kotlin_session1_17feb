@@ -4,15 +4,15 @@ class TestData {
 
     fun main()
     {
-        substrchange1()
-        question3()
-        twoarr5()
-        last()
-        percentage()
-        dup()
+        StrDupOcc()
+	SubStrChange()
+	CountChar()
+	ComArray()
+	StrPair()
+	percentage()
     }
 
-    fun substrchange1() //1.Write a program to replace a substring inside a string with another string.
+    fun SubStrChange() //1.Write a program to replace a substring inside a string with another string.
     {
 
         var str = "APPLEPIE"
@@ -21,16 +21,16 @@ class TestData {
 
         val output = str.replace(oldValue, newValue)
         println(str+"- this is the orignal text")
-        print(output+"- sustring is changed from PIE TO JUICE in-"+str)
+        print(output+"- sustring is changed from PIE TO JUICE in $str")
     }
-    fun question3()//3.Write a program to find the number of occurrences of a character in a string without using loop.
+    fun CountChar() //3.Write a program to find the number of occurrences of a character in a string without using loop.
     {
 
-        val i =("fibonacci")
-        println(i.groupingBy { it }.eachCount().filter { it.value > 1 })
+        val i =("appleapplemango")
+        println(i.groupingBy { it }.eachCount())
     }
 
-    fun twoarr5()//5.Find common elements between two arrays.
+    fun ComArray()//5.Find common elements between two arrays.
     {
         val arr1 = intArrayOf(4, 7, 3, 9, 2)
         val arr2 = intArrayOf(3, 2, 12, 9, 40, 32, 4)
@@ -45,7 +45,7 @@ class TestData {
             }
         }
     }
-    fun last()//6.Check letter in string which do not have pair.
+    fun StrPair()//6.Check letter in string which do not have pair.
     {
         var text = "hellosirhellosir"
         println("original string was-"+text)
@@ -57,7 +57,7 @@ class TestData {
                 newtext += char
         }
         text = newtext
-        println("string after removed paired character-"+text)
+        println("string after removed paired character $text")
     }
     fun percentage()//4.Calculate the number & Percentage Of Lowercase Letters,Uppercase Letters, Digits And Other Special Characters In A String.
 	{
@@ -80,10 +80,10 @@ class TestData {
             }
         }
 
-        println("Lower case letters :- " + lowerCase);
-        println("Upper case letters :- " + upperCase);
-        println("Number :- " + digits);
-        println("Special characters :- " + others);
+        println("Lower case letters $lowerCase " );
+        println("Upper case letters $upperCase" );
+        println("Number $digits ");
+        println("Special characters $others " );
         val upperCaseLetterPercentage = upperCase * 100 / totalChar.toDouble()
         val lowerCaseLetterPercentage = lowerCase * 100 / totalChar.toDouble()
         val digitsPercentage = digits * 100 / totalChar.toDouble()
@@ -95,7 +95,7 @@ class TestData {
         println("Other Characters in percentage Are:- " + (otherCharPercentage).toString() + "%")
     }
 
-    fun dup() //2.Write a program to find the number of occurrences of the duplicate words in a string and print them.
+    fun StrDupOcc() //2.Write a program to find the number of occurrences of the duplicate words in a string and print them.
 	{
         var string = "ram is going to market for buying apple orange mango apple orange banana"
         var count: Int
@@ -110,7 +110,7 @@ class TestData {
                     words[j] = "0"
                 }
             }
-            if (count > 1 && words[i] !== "0") println(words[i])
+            if (count > 1 && words[i] !== "0") println(words[i]+"  occurrences are $count ")
         }
     }
 
